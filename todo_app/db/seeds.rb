@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 3.times do |task|
-  task.title = "Coding Challenge"
-  task. details = "Did you do that?"
-end 
+  task = Task.create!(
+    title: "Coding is fun",
+    detail: "Doing it is always good"
+  )
+end
