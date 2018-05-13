@@ -1,2 +1,8 @@
-<h1>Tasks#indexnew</h1>
-<p>Find me in app/views/tasks/indexnew.html.erb</p>
+<h1>Tasks#index</h1>
+ <p><% @tasks.each do |task|  %>
+   <%= task.title %><br>
+   <%= task.detail %><hr>
+   <% end %>
+
+
+ </p>
