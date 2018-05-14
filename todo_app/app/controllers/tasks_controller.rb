@@ -26,7 +26,7 @@ class TasksController < ApplicationController
 
   def update
     find_task_id
-    if @task.update
+    if @task.update(task_param)
       redirect_to task_path
     else
       render 'edit'
