@@ -14,4 +14,17 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     assert_template 'users/new'
   end
+
+  test "user information should accept valid info" do
+    get sign_up_path
+    assert_difference 'User.count', 1 do
+      post users_path, params: { user: { name: "jbaik",
+                                         email: "pppp@gmail.com",
+                                         password: "pglossy",
+                                         password_confirmation: "pglossy"}}
+      end
+      follow_redirect!
+      assert_template 'users/show'
+    end
+
 end
