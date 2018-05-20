@@ -7,7 +7,12 @@ class User < ApplicationRecord
   validates :password, length: { minumum : 6, allow_nil: true },
 
 
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
+    return user if user && user.authenticate(password)
+    
 
+  end
 
 
   def self.how_long_to_find_users_in_ms
