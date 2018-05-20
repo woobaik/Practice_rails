@@ -1,5 +1,15 @@
 class User < ApplicationRecord
 
+  before_validation :ensure_session_token
+
+  validates :username, :session_token, presence: true
+  validates :password_digest, presence: true, { message: "Password, can'be blank!"}
+  validates :password, length: { minumum : 6, allow_nil: true },
+
+
+
+
+
   def self.how_long_to_find_users_in_ms
     start = Time.now
     User.where(username: "haram").to_a
