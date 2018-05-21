@@ -3,8 +3,11 @@
   <%= f.label :username %>
   <%= f.text_field :username, placeholder: "Enter Usernanme" %><br>
 
-  <%= f.label :password_digest %>
-  <%= f.password_field :password_digest, placeholder: "Enter Password" %><br>
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder: "Enter Password" %><br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder: "Enter Password" %><br>
 
   <%= f.submit "Create My Account" %>
 

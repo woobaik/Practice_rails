@@ -8,6 +8,6 @@
 
 1000.times do |input|
   User.create(username: "haram",
-               password_digest: "kjsflkjslkdjflksfj")
+               password: "kjsflkjslkdjflksfj")
 
 end
