@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:edit, :update, :show, :destroy]
+  before_action :find_user, only: [:show, :destroy]
   def index
     @users = User.all
   end
@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      redirect_to @user
     else
-      flash[:error_sign_up] = "There was an error"
+      flash.now[:error_sign_up] = "There was an error"
       render 'new'
     end
 
@@ -32,7 +32,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    User.delete(@user)
+    redirect_to
   end
 
 
