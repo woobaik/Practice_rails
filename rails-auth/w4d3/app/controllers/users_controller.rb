@@ -1,5 +1,4 @@
-class UserController < ApplicationController
-
+class UsersController < ApplicationController
   before_action :find_user, only: [:edit, :update, :show, :destroy]
   def index
     @users = User.all
@@ -40,5 +39,7 @@ class UserController < ApplicationController
   def find_user
     @user = User.find_by(id: params[:id])
   end
+
+end
 
 end
