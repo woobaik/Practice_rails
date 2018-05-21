@@ -10,6 +10,13 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if @user.save
+      redirect_to users_path
+    else
+      flash[:error_sign_up] = "There was an error"
+      render 'new'
+    end
+
   end
 
   def edit

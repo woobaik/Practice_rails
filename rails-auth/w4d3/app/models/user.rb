@@ -1,10 +1,10 @@
 class User < ApplicationRecord
 
-  before_validation :ensure_session_token
 
-  validates :username, :session_token, presence: true
-  validates :password_digest, presence: true
-  
+
+  validates :username, presence: true, length: { minimum: 6 }
+  validates :password_digest, presence: true, length: { minimum: 6 }
+
 
 
   def self.find_by_credentials(username, password)
