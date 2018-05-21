@@ -33,13 +33,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username,
-                                 :password_digest))
+                                 :password_digest)
   end
 
   def find_user
     @user = User.find_by(id: params[:id])
   end
 
-end
 
 end
