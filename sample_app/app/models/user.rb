@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: { minimum: 6 }
 
-
+  
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ?
            BCrtpt::Engine::MIN_COST : BCrypt::Engine.cost
@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def remember
-    self.remember_token = update_attribute(:remember_digest, ...)
+    self.remember_token = update_attribute(:remember_digest, User.digest(remember_token))
 
   end
 
