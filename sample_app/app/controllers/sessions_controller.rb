@@ -20,4 +20,10 @@ class SessionsController < ApplicationController
     log_out
     redirect_to root_url
   end
+
+  def remember(user)
+    user.remember
+    cookies.permanent.signed[:user_id] = user.id
+    cookies.permanet[:remember_token] = user.remember_token
+  end
 end
