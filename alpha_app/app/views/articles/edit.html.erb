@@ -1,3 +1,6 @@
 <h1>Edit your Article</h1>
+<% flash.each do |type, msg| %>
+  <%= msg %>
+<% end %>
 <%= render 'layouts/shared/errors' %>
 <%= render 'form' %>
