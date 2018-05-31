@@ -14,5 +14,9 @@ $navbar-default-bg: #6B3068;
   text-decoration: none;
 }
 
+.center {
+  text-align: center;
+}
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
