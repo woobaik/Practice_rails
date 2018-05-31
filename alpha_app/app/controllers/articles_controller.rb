@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       flash[:success] = "Your Article Has Been Posted."
-      redirect_to article
+      redirect_to @article
     else
       flash.now[:error] = "There Was an Error Posting Article."
       render 'new'
@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       flash[:success] = "Your Article Has Been Updated."
-      redirect_to article
+      redirect_to @article
     else
       flash.now[:error] = "There Was an Error Updating Your Article."
       render 'new'

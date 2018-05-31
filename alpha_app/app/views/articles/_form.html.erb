@@ -1,0 +1,22 @@
+<div class="#">
+  <%= form_for(@article) do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+        <!-- need to make sure model validates @article.title  -->
+       <% if @article.title.nil? %>
+    <p><%= f.submit "Creat an Article" %></p>
+      <% else %>
+      <p><%= f.submit "Edit Your Article" %></p>
+      <% end %>
+
+  <% end %>
+
+</div>
