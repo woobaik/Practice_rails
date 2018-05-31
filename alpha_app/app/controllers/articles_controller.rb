@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
       redirect_to @article
     else
       flash.now[:error] = "There Was an Error Updating Your Article."
-      render 'new'
+      render 'edit'
     end
   end
 
