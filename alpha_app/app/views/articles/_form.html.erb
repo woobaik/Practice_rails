@@ -6,7 +6,7 @@
           <%= f.label :title %>
         </div>
         <div class="col-sm-10">
-          <%= f.text_field :title, class: "form-control", placeholder:"Title for Article" %>
+          <%= f.text_field :title, class: "form-control", placeholder:"Title for Article", autofocus: true %>
         </div>
       </div>
 
@@ -21,7 +21,7 @@
       </div>
 
           <!-- need to make sure model validates @article.title  -->
-        <% if @article.title.nil? %>
+        <% if @article.title.nil? || @article.title.empty? %>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <%= f.submit "Creat an Article", class: "btn btn-primary btn-lg"%>

@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
 
   def destroy
     if @article.delete
-      flash[:success] = "Your Article Has Been Deleted."
+      flash[:danger] = "Your Article Has Been Deleted."
       redirect_to articles_path
     else
       flash.now[:error] = "There Was an Error Deleting Your Article."
