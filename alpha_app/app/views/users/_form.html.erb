@@ -30,19 +30,12 @@
       </div>
 
           <!-- need to make sure model validates @article.title  -->
-        <% if @user.username.nil? || @user.username.empty? %>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <%= f.submit "Sign Up", class: "btn btn-primary btn-lg"%>
+              <%= f.submit(@user.new_record? ? "Sign Up" : "Edit Your Account", class: "btn btn-primary btn-lg")%>
             </div>
           </div>
-        <% else %>
-          <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-              <%= f.submit "Edit Your Profile", class: "btn btn-primary btn-lg" %>
-            </div>
-          </div>
-          <% end %>
+
     <% end %>
       <div class="col-xs-4 col-xs-offset-4">
         [<%= link_to "Cancel request and return to articles listing", articles_path %>]
