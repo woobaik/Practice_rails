@@ -1,0 +1,14 @@
+<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+
+<div class="row">
+  <div class="col-md-4 col-xs-offset-5 center">
+      <%= gravatar_for(@user, size: 120) %>
+  </div>
+</div>
+
+<h4 align="center"><%= @user.username %>'s articles</h4>
+  <% @user.articles.each do |article| %>
+    <strong>Title :</strong> <%= article.title %><br>
+    <strong>Description : </strong> <%= article.description %><br>
+    <hr>
+  <% end %>
