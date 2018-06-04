@@ -1,9 +1,28 @@
-<h1><%= @article.title %></h1>
-<section>
-  <p><%= @article.description %></p>
-</section>
+<h2 align="center"> Title: <%= @article.title %> </h2>
 
+<div class="well col-xs-8 col-xs-offset-4">
+  <ul class="listing">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-6">
+        <li>Created by:</li>
+        <li><%= link_to gravatar_for(@article.user), user_path(@article.user) %></li>
+        <li class="article-title">
+          <%= link_to @article.user.username, user_path(@article.user) %>
+        </li>
+        <li><small>
+          <%= pluralize(@article.user.articles.count, "article") if @article.user.articles %>
+        </small></li>
+      </div>
+    </div>
+  </ul>
+</div>
 
-<%= link_to 'Back to Main', articles_path %><br>
-<%= link_to 'Edit This Article', edit_article_path(@article)%><br>
-<%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you Sure?"} %>
+<h4 align="center"><strong>Description</strong></h4>
+<h5> <%= @article.description %> </h5>
+<hr>
+<div class="center">
+  <%= link_to 'Back to Main', articles_path %><br>
+  <%= link_to 'Edit This Article', edit_article_path(@article)%><br>
+  <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you Sure?"} %>
+
+</div>
